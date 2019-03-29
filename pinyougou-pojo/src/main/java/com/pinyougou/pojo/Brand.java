@@ -1,5 +1,6 @@
 package com.pinyougou.pojo;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -9,12 +10,18 @@ import java.io.Serializable;
  * @version 1.0
  * <p>File Created at 2019-03-26<p>
  */
+@Table(name="tb_brand")
 public class Brand implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     // 品牌id
     private Long id;
     // 品牌名称
+    @Column
     private String name;
     // 品牌首字母
+    @Column(name="first_char")
     private String firstChar;
 
     public Long getId() {
