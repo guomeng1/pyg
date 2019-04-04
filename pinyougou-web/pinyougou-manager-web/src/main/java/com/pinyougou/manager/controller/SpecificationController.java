@@ -10,6 +10,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/specification")
@@ -39,5 +41,9 @@ public class SpecificationController {
             e.printStackTrace();
         }
         return false;
+    }
+    @GetMapping("/findBySpecList")
+    public List<Map<String, Object>> findBySpecList(){
+        return specificationService.findAllByIdAndName();
     }
 }
